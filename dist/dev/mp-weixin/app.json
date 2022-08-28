@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/daka_login/index",
+    "pages/home_square/index",
+    "pages/home_nft/index",
+    "pages/home_my/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home_square/index",
+        "text": "哒咔广场"
+      },
+      {
+        "pagePath": "pages/home_nft/index",
+        "text": "哒咔地标"
+      },
+      {
+        "pagePath": "pages/home_my/index",
+        "text": "我的哒咔"
+      }
+    ]
+  },
+  "usingComponents": {}
+}
