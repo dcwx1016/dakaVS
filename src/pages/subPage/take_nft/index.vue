@@ -1,49 +1,82 @@
 <template>
-  <view>
-    <div>欢迎进入微</div>
+  <view class="take-page">
+    <div class="page-info">
+      <div>欢迎进入微哒咔，</div>
+      <div>输入哒咔邀请口令。</div>
+      <div>领取你的虚拟哒咔资产。</div>
+    </div>
+    <div class="page-input">
+      <span class="input-info">输入哒咔口令</span>
+      <input type="text" />
+    </div>
+    <button @click="takeDaka">确定</button>
   </view>
 </template>
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue';
-import { getUserNfts } from '@/utils/user';
+import { takeNft } from '@/utils/user';
+import { onLoad } from '@dcloudio/uni-app';
 
-onMounted(() => {
-  if (wx.getStorageSync('phone') && wx.getStorageSync('token')) {
-    // getUserNfts({
-    //   token: wx.getStorageSync('token'),
-    //   contract: wx.getStorageSync('confluxaddress'),
-    // }).then((res) => {
-    //   console.log(res);
-    // });
-  }
+const id = ref('');
+const contract = ref('');
+const inputValue = ref('');
+
+const takeDaka = () => {
+  takeNft({
+    phone: wx.getStorageSync('phone'),
+    token: wx.getStorageSync('token'),
+    contract: contract.value,
+    chaintype: 'cfx',
+    tokenid: id.value,
+    codestr: 'MKcsv7mp8f7fTbc2zT20pWAzAoqkp4F3', //'RL7Wlr04l6XSa0pjM6q18xtwptVUly7q',
+  }).then((res) => {
+    wx.switchTab({
+      url: '/pages/home_square/index',
+    });
+  });
+};
+onLoad((option) => {
+  console.log('ss', option);
+  id.value = option['id'] || '';
+  contract.value = option['contract'] || '';
 });
 </script>
 
-<style>
-.content {
+<style lang="scss">
+.take-page {
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-}
+  align-items: flex-start;
+  background: $daka-grey;
+  color: white;
+  padding: 0 40px;
+  .page-info {
+    font-weight: 200;
+    font-size: 12px;
+  }
+  .page-input {
+    margin-top: 15px;
+    border: 1px solid white;
+    display: flex;
+    padding: 10px;
 
-.logo {
-  height: 200rpx;
-  width: 200rpx;
-  margin-top: 200rpx;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50rpx;
-}
-
-.text-area {
-  display: flex;
-  justify-content: center;
-}
-
-.title {
-  font-size: 36rpx;
-  color: #8f8f94;
+    .input-info {
+      padding-right: 10px;
+      border-right: 1px solid white;
+      margin-right: 10px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    input {
+    }
+  }
+  button {
+    width: 100%;
+    margin-top: 30px;
+  }
 }
 </style>

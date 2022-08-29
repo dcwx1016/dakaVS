@@ -15,6 +15,9 @@ const _sfc_main = {
     };
     const takeDaka = (id, contract) => {
       console.log(id, contract);
+      wx.navigateTo({
+        url: `/pages/subPage/take_nft/index?id=${id}&contract=${contract}`
+      });
     };
     common_vendor.onMounted(() => {
       if (wx.getStorageSync("phone") && wx.getStorageSync("token")) {
@@ -36,7 +39,7 @@ const _sfc_main = {
             a: common_vendor.t(item.name),
             b: item.image,
             c: common_vendor.t(item.description),
-            d: common_vendor.o(() => takeDaka(item.tokeId, item.contract)),
+            d: common_vendor.o(() => takeDaka(item.tokenId, item.contract)),
             e: idx
           };
         })

@@ -31,11 +31,21 @@ export function loginRegisterWechat(data) {
 }
 
 export function getUserNfts(data) {
-  return REQUEST.post('https://api-testnet.confluxscan.net/nft/tokens', {
+  return REQUEST.get('https://api-testnet.confluxscan.net/nft/tokens', {
+    ...data,
+    contract: 'cfxtest:acb3vn9rxjcvwfbvzn92wcybe4f0th45np8tfh46sx',
+  });
+}
+
+//领取徽章
+
+export function takeNft(data) {
+  return REQUEST.post('/GuGuBox_GetReleaseNFT', {
     ...data,
   });
 }
 
+// 哒咔详情
 export function getNftDetail(id) {
   return REQUEST.get(
     `https://api-testnet.confluxscan.net/nft/preview?tokenId=${id}&contract=cfxtest:acb3vn9rxjcvwfbvzn92wcybe4f0th45np8tfh46sx`

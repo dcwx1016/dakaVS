@@ -6,6 +6,7 @@ if (!Math) {
   "./pages/home_square/index.js";
   "./pages/home_nft/index.js";
   "./pages/home_my/index.js";
+  "./pages/subPage/take_nft/index.js";
 }
 const _sfc_main = {
   onLaunch: function() {

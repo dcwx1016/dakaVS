@@ -1,16 +1,37 @@
 "use strict";
 var common_vendor = require("../../common/vendor.js");
+var utils_user = require("../../utils/user.js");
 require("../../utils/request.js");
 const _sfc_main = {
   __name: "index",
   setup(__props) {
-    common_vendor.onMounted(() => {
-      if (wx.getStorageSync("phone") && wx.getStorageSync("token"))
-        ;
+    const dakaList = common_vendor.ref([]);
+    const getListDetail = (list) => {
+      Array.from(list).forEach((item) => {
+        dakaList.value.push(item.rawData.metadata);
+      });
+    };
+    common_vendor.onLoad(() => {
+      if (wx.getStorageSync("confluxaddress")) {
+        utils_user.getUserNfts({
+          owner: wx.getStorageSync("confluxaddress"),
+          withMetadata: true
+        }).then((res) => {
+          console.log(res);
+          if (res.data.data && res.data.data.list) {
+            getListDetail(res.data.data.list);
+          }
+        });
+      }
     });
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.t(_ctx.title)
+        a: common_vendor.f(dakaList.value, (item, idx, i0) => {
+          return {
+            a: item.image,
+            b: idx
+          };
+        })
       };
     };
   }

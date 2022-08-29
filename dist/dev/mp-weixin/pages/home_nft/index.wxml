@@ -1,1 +1,1 @@
-<view class="content"><image class="logo" src="/static/logo.png"></image><view class="text-area"><text class="title">{{a}}</text></view></view>
+<view class="nfts-page"><view class="page-header"><label class="header-left">查看 我的哒咔</label><label class="header-right"></label></view><view class="daka-header"><view class="header-left"><label class="l-top"> 我所有的 </label><label class="l-bottom"> 虚拟哒咔 </label></view><label class="header-right"></label></view><view class="nft-list"><image wx:for="{{a}}" wx:for-item="item" wx:key="b" src="{{item.a}}"/></view></view>

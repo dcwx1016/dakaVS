@@ -18,7 +18,7 @@
         <p class="item-info">
           {{ item.description }}
         </p>
-        <button @click="() => takeDaka(item.tokeId, item.contract)">
+        <button @click="() => takeDaka(item.tokenId, item.contract)">
           领取 你的哒咔
         </button>
       </div>
@@ -44,8 +44,8 @@ const getListDetail = (list) => {
 
 const takeDaka = (id, contract) => {
   console.log(id, contract);
-  wx.redirectTo({
-    url: '/pages/subPage/take_nft/index',
+  wx.navigateTo({
+    url: `/pages/subPage/take_nft/index?id=${id}&contract=${contract}`,
   });
 };
 

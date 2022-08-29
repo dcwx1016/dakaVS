@@ -3,7 +3,8 @@
     "pages/daka_login/index",
     "pages/home_square/index",
     "pages/home_nft/index",
-    "pages/home_my/index"
+    "pages/home_my/index",
+    "pages/subPage/take_nft/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
