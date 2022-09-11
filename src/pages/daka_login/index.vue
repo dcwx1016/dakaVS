@@ -1,22 +1,24 @@
 <template>
   <view class="login-page">
     <view class="login-header">
-      <view class="title">区块授权</view>
-      <view class="daka-logo">
-        <view class="logo-title">微哒咔</view>
-        <view class="logo-info">你的虚拟哒咔社区</view>
+      <view class="header-top">
+        <view class="title">区块授权</view>
+        <view class="daka-logo">
+          <image class="logo" src="/static/logoWithName-white.png"></image>
+        </view>
       </view>
     </view>
     <view class="login-body">
       <view class="daka-slogan">
         <div class="s-logo">
-          <image class="l-left" src="/static/login-logo.png"></image>
+          <image class="l-left" src="/static/newlogo-blackwhite.png"></image>
+          <image class="l-mid" src="/static/login-connect.png"></image>
           <image class="l-right" src="/static/login-logo2.png"></image>
         </div>
         <div class="s-info">
           <p>去授权使用区块链服务，拥有你的专属哒咔社区</p>
           <p>
-            生态伙伴区块方块提供通用账户体系．树图链区块链底层操作系统安全防护
+            生态伙伴区块积木提供通用账户体系．树图链区块链底层操作系统安全防护
           </p>
         </div>
       </view>
@@ -30,6 +32,12 @@
           去授权
         </button>
       </view>
+    </view>
+    <view class="footer">
+      <!-- <button @click="getUserProfile">授权微信头像与昵称</button> -->
+      <image class="commercial" src="../../static/logoWithName-white.png" />
+      <p>版权所有:A MODERNLAND Tech Company 摩登地标 技术支持:区块积木</p>
+      <p>Conflux树图区块链研究院提供区块链底层技术支持</p>
     </view>
   </view>
 </template>
@@ -89,22 +97,23 @@ const cancelLogin = () => {
 onMounted(() => {
   // 如果当下的token可以登录，则跳转主页
   // 否则不跳转。
-  if (wx.getStorageSync('phone') && wx.getStorageSync('token')) {
-    checkAlive({
-      phone: wx.getStorageSync('phone'),
-      token: wx.getStorageSync('token'),
-    }).then((res) => {
-      console.log(res);
-      if (res.data.secret === 'success') {
-        cancelLogin();
-      }
-    });
-  }
+  // if (wx.getStorageSync('phone') && wx.getStorageSync('token')) {
+  //   checkAlive({
+  //     phone: wx.getStorageSync('phone'),
+  //     token: wx.getStorageSync('token'),
+  //   }).then((res) => {
+  //     console.log(res);
+  //     if (res.data.secret === 'success') {
+  //       cancelLogin();
+  //     }
+  //   });
+  // }
 });
 </script>
 
 <style lang="scss">
 .login-page {
+  font-family: 'IBM Plex Mono';
   height: 100vh;
   overflow: hidden;
   display: flex;
@@ -116,17 +125,24 @@ onMounted(() => {
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    .title {
-      align-self: flex-end;
-    }
-    .daka-logo {
-      .logo-title {
-        font-size: 30px;
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      .title {
+        margin-top: 25px;
+        margin-bottom: 20px;
         font-weight: 500;
+        font-size: 18px;
+        line-height: 23px;
       }
-      .logo-info {
-        font-weight: 300;
-        font-size: 16px;
+      .daka-logo {
+        align-self: flex-start;
+        .logo {
+          width: 131px;
+          height: 22px;
+        }
       }
     }
   }
@@ -138,25 +154,31 @@ onMounted(() => {
     align-items: center;
     background-color: $daka-grey;
     .daka-slogan {
+      .l-mid {
+        width: 27.1px;
+        height: 22.96px;
+        margin: 0 20px;
+      }
+      .l-left {
+        width: 80px;
+        height: 80px;
+        border-top: 5px solid $daka-primary;
+      }
+      .l-right {
+        width: 80px;
+        height: 80px;
+        border-top: 5px solid $daka-primary;
+      }
       .s-logo {
         display: flex;
-        justify-content: space-around;
-        image {
-          width: 80px;
-          height: 80px;
-          padding-top: 4px;
-          border-top: 5px solid $daka-primary;
-        }
+        justify-content: center;
+        align-items: center;
       }
       .s-info {
         margin: 20px 0;
         text-align: center;
         font-weight: 200;
         font-size: 10px;
-      }
-      .l-left {
-      }
-      .l-right {
       }
     }
     .daka-option {
@@ -165,7 +187,10 @@ onMounted(() => {
       button {
         border-radius: 0;
         width: 100px;
-        line-height: 30px;
+        padding: 2.5px 0;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
       }
       .confirm {
         background: $daka-primary;
@@ -173,6 +198,22 @@ onMounted(() => {
       }
       .cancel {
       }
+    }
+  }
+  .footer {
+    background-color: $daka-grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 0;
+    font-weight: 500;
+    font-size: 6px;
+    line-height: 8px;
+    .commercial {
+      margin-bottom: 10px;
+      width: 90px;
+      height: 15px;
     }
   }
 }

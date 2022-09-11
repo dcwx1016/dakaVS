@@ -50,17 +50,6 @@ const _sfc_main = {
       });
     };
     common_vendor.onMounted(() => {
-      if (wx.getStorageSync("phone") && wx.getStorageSync("token")) {
-        utils_user.checkAlive({
-          phone: wx.getStorageSync("phone"),
-          token: wx.getStorageSync("token")
-        }).then((res) => {
-          console.log(res);
-          if (res.data.secret === "success") {
-            cancelLogin();
-          }
-        });
-      }
     });
     return (_ctx, _cache) => {
       return {

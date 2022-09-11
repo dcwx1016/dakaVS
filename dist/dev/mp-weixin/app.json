@@ -1,30 +1,40 @@
 {
   "pages": [
-    "pages/daka_login/index",
     "pages/home_square/index",
-    "pages/home_nft/index",
+    "pages/home_ranking/index",
+    "pages/daka_login/index",
+    "pages/subPage/my_nft/index",
     "pages/home_my/index",
-    "pages/subPage/take_nft/index"
+    "pages/subPage/take_nft/index",
+    "pages/subPage/share_nft/index",
+    "pages/subPage/nft_detail/index",
+    "pages/subPage/take_nft_result/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
   "tabBar": {
+    "selectedColor": "#000000",
     "list": [
       {
         "pagePath": "pages/home_square/index",
-        "text": "哒咔广场"
+        "text": "活动哒咔",
+        "selectedIconPath": "static/tab1.png",
+        "iconPath": "static/tab1.png"
       },
       {
-        "pagePath": "pages/home_nft/index",
-        "text": "哒咔地标"
+        "pagePath": "pages/home_ranking/index",
+        "text": "哒咔广场",
+        "selectedIconPath": "static/tab2.png",
+        "iconPath": "static/tab2.png"
       },
       {
         "pagePath": "pages/home_my/index",
-        "text": "我的哒咔"
+        "text": "我的哒咔",
+        "iconPath": "static/tab3.png",
+        "selectedIconPath": "static/tab3.png"
       }
     ]
   },

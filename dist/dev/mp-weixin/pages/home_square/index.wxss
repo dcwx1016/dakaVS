@@ -24,6 +24,7 @@
 /* 透明度 */
 /* 文章场景相关 */
 .square-page {
+  font-family: "IBM Plex Mono";
   height: 100vh;
   overflow: hidden;
   display: flex;
@@ -31,7 +32,7 @@
 }
 .square-page .square-header {
   color: white;
-  background-color: #1B21F3;
+  background-color: #000000;
   padding: 10px 20px;
   margin-bottom: 10px;
 }
@@ -41,13 +42,19 @@
   align-items: center;
   width: 100%;
 }
-.square-page .square-header .header-top .daka-logo .logo-title {
-  font-size: 30px;
+.square-page .square-header .header-top .title {
+  margin-top: 25px;
+  margin-bottom: 18px;
   font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
 }
-.square-page .square-header .header-top .daka-logo .logo-info {
-  font-weight: 300;
-  font-size: 16px;
+.square-page .square-header .header-top .daka-logo {
+  align-self: flex-start;
+}
+.square-page .square-header .header-top .daka-logo .logo {
+  width: 131px;
+  height: 22px;
 }
 .square-page .square-list {
   flex: 1;
@@ -58,24 +65,99 @@
   background: #f5f5f5;
   padding: 12px 25px;
   margin-bottom: 25px;
-  border-top: 5px solid #1B21F3;
+  border-top: 5px solid #000000;
 }
-.square-page .square-list .list-item .item-name {
+.square-page .square-list .list-item .item-header {
   padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+.square-page .square-list .list-item .item-header .default-avatar,
+.square-page .square-list .list-item .item-header image {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+}
+.square-page .square-list .list-item .item-header .default-avatar {
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.square-page .square-list .list-item .item-header .avatar-title {
+  font-size: 12px;
+  line-height: 16px;
 }
 .square-page .square-list .list-item .item-img {
   width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+}
+.square-page .square-list .list-item .item-img image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.square-page .square-list .list-item .item-brief {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 11px;
+}
+.square-page .square-list .list-item .item-brief .brief-left {
+  display: flex;
+}
+.square-page .square-list .list-item .item-brief .brief-right {
+  color: white;
+  padding: 3px 5px;
+  background: black;
+}
+.square-page .square-list .list-item .item-brief .brief-right .label {
+  font-size: 7px;
+  line-height: 9px;
+  margin-right: 3px;
+}
+.square-page .square-list .list-item .item-brief .brief-right .amount {
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 13px;
+}
+.square-page .square-list .list-item .item-brief .info-image {
+  padding: 3px 5px;
+  margin-right: 8px;
+  background: #979797;
+  color: white;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.square-page .square-list .list-item .item-brief .info-image image {
+  margin-right: 3px;
+}
+.square-page .square-list .list-item .item-brief .info-image .date {
+  width: 6.5px;
+  height: 6.5px;
+}
+.square-page .square-list .list-item .item-brief .info-image .place {
+  width: 5px;
+  height: 8px;
 }
 .square-page .square-list .list-item .item-info {
   padding: 10px 0;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 10px;
-  line-height: 12px;
+  line-height: 13px;
+  text-align: justify;
 }
 .square-page .square-list .list-item button {
   line-height: 20px;
   border-radius: 0;
   font-size: 12px;
   color: white;
-  background: #1B21F3;
+  background: #000000;
 }

@@ -16,12 +16,6 @@ export function checkAlive(data) {
   });
 }
 
-// export function getPhonenNo(data) {
-//   return REQUEST.post('/RegBindLoginWechat', {
-//     code: data,
-//   });
-// }
-
 // 微信注册登录三合一
 export function loginRegisterWechat(data) {
   return REQUEST.post('/RegBindLoginWechat', {
@@ -45,31 +39,31 @@ export function takeNft(data) {
   });
 }
 
+//领取徽章回显
+
+export function takeNftResult(data) {
+  return REQUEST.post('/GuGuBox_GetReleaseNFT', {
+    ...data,
+  });
+}
+// 指定数量
+export function geUsertNftNumber(data) {
+  return REQUEST.post('/GuGuBox_GetPOAPBanlaceOfBatch', {
+    ...data,
+    contract: 'cfxtest:acb3vn9rxjcvwfbvzn92wcybe4f0th45np8tfh46sx',
+  });
+}
+
 // 哒咔详情
 export function getNftDetail(id) {
   return REQUEST.get(
-    `https://api-testnet.confluxscan.net/nft/preview?tokenId=${id}&contract=cfxtest:acb3vn9rxjcvwfbvzn92wcybe4f0th45np8tfh46sx`
+    `https://api-testnet.confluxscan.net/nft/preview?tokenId=${id}&contract=cfxtest:acb3vn9rxjcvwfbvzn92wcybe4f0th45np8tfh46sx&withMetadata=true`
   );
 }
 
-// export function registerWithCode(data) {
-//   return REQUEST.post('/RegAndVerifyandReturnInfo', data);
-// }
-// export function requestPhoneCode(data) {
-//   return REQUEST.post('/GetPhoneVerifyCode', data);
-// }
-
-// export function bindWechat(data) {
-//   return REQUEST.post('/BindingWeChat', {
-//     ...data,
-//     appid: 'wx3600f6e21bbc6dfb',
-//     // secret: '',
-//   });
-// }
-
-// export function loginWechat(code) {
-//   return REQUEST.post('/LoginWechatReturnInfo', {
-//     js_code: code,
-//     appid: 'wx3600f6e21bbc6dfb',
-//   });
-// }
+// 收藏榜
+export function holderRank() {
+  return REQUEST.get(
+    `https://testnet.confluxscan.net/stat/tokens/holder-rank?address=cfxtest:acb3vn9rxjcvwfbvzn92wcybe4f0th45np8tfh46sx&limit=10&orderBy=balance&reverse=true&skip=0&tab=holders`
+  );
+}

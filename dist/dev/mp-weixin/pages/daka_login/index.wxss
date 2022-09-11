@@ -24,6 +24,7 @@
 /* 透明度 */
 /* 文章场景相关 */
 .login-page {
+  font-family: "IBM Plex Mono";
   height: 100vh;
   overflow: hidden;
   display: flex;
@@ -31,22 +32,31 @@
   color: white;
 }
 .login-page .login-header {
-  background-color: #1B21F3;
+  background-color: #000000;
   justify-content: space-between;
   display: flex;
   align-items: center;
   padding: 10px 20px;
 }
-.login-page .login-header .title {
-  align-self: flex-end;
+.login-page .login-header .header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
-.login-page .login-header .daka-logo .logo-title {
-  font-size: 30px;
+.login-page .login-header .header-top .title {
+  margin-top: 25px;
+  margin-bottom: 20px;
   font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
 }
-.login-page .login-header .daka-logo .logo-info {
-  font-weight: 300;
-  font-size: 16px;
+.login-page .login-header .header-top .daka-logo {
+  align-self: flex-start;
+}
+.login-page .login-header .header-top .daka-logo .logo {
+  width: 131px;
+  height: 22px;
 }
 .login-page .login-body {
   flex: 1;
@@ -54,17 +64,27 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #737373;
+  background-color: #363636;
+}
+.login-page .login-body .daka-slogan .l-mid {
+  width: 27.1px;
+  height: 22.96px;
+  margin: 0 20px;
+}
+.login-page .login-body .daka-slogan .l-left {
+  width: 80px;
+  height: 80px;
+  border-top: 5px solid #000000;
+}
+.login-page .login-body .daka-slogan .l-right {
+  width: 80px;
+  height: 80px;
+  border-top: 5px solid #000000;
 }
 .login-page .login-body .daka-slogan .s-logo {
   display: flex;
-  justify-content: space-around;
-}
-.login-page .login-body .daka-slogan .s-logo image {
-  width: 80px;
-  height: 80px;
-  padding-top: 4px;
-  border-top: 5px solid #1B21F3;
+  justify-content: center;
+  align-items: center;
 }
 .login-page .login-body .daka-slogan .s-info {
   margin: 20px 0;
@@ -79,9 +99,28 @@
 .login-page .login-body .daka-option button {
   border-radius: 0;
   width: 100px;
-  line-height: 30px;
+  padding: 2.5px 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
 }
 .login-page .login-body .daka-option .confirm {
-  background: #1B21F3;
+  background: #000000;
   color: white;
+}
+.login-page .footer {
+  background-color: #363636;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 0;
+  font-weight: 500;
+  font-size: 6px;
+  line-height: 8px;
+}
+.login-page .footer .commercial {
+  margin-bottom: 10px;
+  width: 90px;
+  height: 15px;
 }
